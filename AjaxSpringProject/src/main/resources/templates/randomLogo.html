@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 로고 생성하기</title>
+    <link rel="icon" href="/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="logo-container">
+    <img id="logo" src="">
+
+</div>
+    <button id="btnLogo">로고 생성하기</button>
+<script>
+    // api url = /get/randomlogo
+
+    function loadLogo() {
+        const url = 'https://www.logotypes.dev/random/data'
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success:
+            function (data) {
+                     $("#logo").attr('src',data.logo);
+
+            },
+            error:
+                function () {
+                    alert('이미지 불러오기에 실패했습니다.')
+                }
+        })
+
+    }
+        loadLogo();
+    $("#btnLogo").click(function () {
+        loadLogo();
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>

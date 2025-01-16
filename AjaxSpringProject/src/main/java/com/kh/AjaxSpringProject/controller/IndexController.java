@@ -15,4 +15,22 @@ public class IndexController {
     public String index() {
         return "index";
     }
+    @GetMapping("/get/avatar")
+    public String getAvatar(){
+        return "Avatar";
+    }
+    @GetMapping("/get/randomlogo")
+    public String getRandomLogo(){
+        return "RandomLogo";
+    }
+
+    @GetMapping("/get/product")
+    public String getProduct(){
+        return "Product";
+    }
+
+    @GetMapping("/cafe")
+    public String getCafe(){
+        return "cafe";
+    }
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+      <h1> 카페목록</h1>
+      <div id="cafe-container">
+
+      </div>
+<script>
+    function loadCafe(){
+        const url = "/api/cafes";
+        $.ajax({
+            url:url,
+            method:'GET',
+            success:
+            function (data) {
+                $.each(data, function(index, value){
+                    $('#cafe-container').append(
+                        `
+                        <div class="cafe-infoContaniner">
+                           <p>카페 이름 : ${value.name}</p>
+                           <p>카페 주소 : ${value.address}</p>
+                           <p>카페 전화 번호 : ${value.phoneNumber}</p>
+                           <p>카페 여는 시간 : ${value.openingTime}</p>
+                           <p>카페 닫는 시간 : ${value.closingTime}</p>
+                           <p>카페 설명: ${value.description}</p>
+                        </div>
+                        `
+                    )
+                })
+                
+            }
+        })
+    }
+    loadCafe();
+</script>
+</body>
+</html>
